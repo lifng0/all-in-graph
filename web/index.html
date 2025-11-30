@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>All in Graph Prototype</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+      onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]})"></script>
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar">
+        <div class="brand">ALL IN GRAPH</div>
+        <div class="sessions">
+          <div class="session" data-session="demo">
+            <div class="session-title">会话列表</div>
+            <button id="btnNewSession" class="new-session">新建会话</button>
+            <ul id="sessionsList" class="sessions-list"></ul>
+          </div>
+        </div>
+      </aside>
+      <main class="canvas-area">
+        <div class="breadcrumb" id="breadcrumb">Demo 会话 / 主画布</div>
+        <div class="canvas-controls">
+          <button id="btnBack" class="back-btn">返回上一层</button>
+        </div>
+        <div id="overlayTopLeft" class="overlay-node hidden"></div>
+        <div id="canvasTreeOverlay" class="canvas-overlay hidden"><div class="cancel-hint">单击空白取消</div><div id="canvasTreePanel" class="tree-panel"></div></div>
+        <svg id="graphSvg" class="graph" viewBox="0 0 1200 800"></svg>
+        <div id="contextMenu" class="context-menu hidden">
+          <button id="cmExplain">解释</button>
+        </div>
+        <div id="hoverTip" class="tooltip hidden"></div>
+      </main>
+      <section class="chat">
+        <div class="chat-header">聊天</div>
+        <div id="rightTreePanel" class="right-tree hidden"></div>
+        <div id="messages" class="messages"></div>
+        <div class="composer">
+          <input id="input" type="text" placeholder="输入消息或公式，如：$$E=mc^2$$" />
+          <button id="send">发送</button>
+        </div>
+      </section>
+      <div id="sessionMenu" class="context-menu hidden">
+        <button id="smRename">重命名</button>
+        <button id="smDelete">删除会话</button>
+      </div>
+      <div id="canvasMenu" class="context-menu hidden">
+        <button id="cmCanvasRename">重命名画布</button>
+        <button id="cmCanvasDelete">删除画布</button>
+      </div>
+    </div>
+    <script src="/main.js"></script>
+  </body>
+</html>
